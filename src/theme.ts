@@ -15,9 +15,12 @@ const Link = defineStyleConfig({
         nav: {
             fontSize: "lg",
             fontWeight: "light",
-            opacity: 0.8,
+            borderTop: "1px solid transparent",
+            borderBottom: "1px solid transparent",
+            opacity: 0.9,
             transition: "all 0.2s ease-in-out",
             _hover: {
+                borderBottom: "1px solid",
                 opacity: 1,
                 textDecoration: "none",
             },
@@ -25,6 +28,8 @@ const Link = defineStyleConfig({
         navActive: {
             fontSize: "lg",
             fontWeight: "light",
+            borderTop: "1px solid transparent",
+            borderBottom: "1px solid",
             cursor: "default",
             _hover: {
                 textDecoration: "none",
@@ -38,9 +43,12 @@ const Button = defineStyleConfig({
         nav: {
             background: "none",
             padding: 0,
-            opacity: 0.8,
+            border: "1px solid transparent",
+            opacity: 0.9,
             transition: "all 0.2s ease-in-out",
+            rounded: "full",
             _hover: {
+                border: "1px solid",
                 opacity: 1,
             },
         },
