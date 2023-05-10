@@ -48,9 +48,14 @@ const Button = defineStyleConfig({
             transition: "all 0.2s ease-in-out",
             rounded: "full",
             _hover: {
-                border: "1px solid",
+                border: "1px solid rgba(0,0,0,0.2)",
                 opacity: 1,
             },
+            _dark: {
+                _hover: {
+                    border: "1px solid rgba(255,255,255,0.2)",
+                },
+            }
         },
     },
 })

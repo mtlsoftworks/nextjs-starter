@@ -87,13 +87,14 @@ const Footer = ({
                                 </VStack>
                             )}
                             {section.navIcons && (
-                                <HStack spacing={4} ml="auto">
+                                <HStack p={2} spacing={4} ml="auto">
                                     {section.navIcons?.map((navIcon) => (
                                         <IconButton
                                             key={navIcon.name}
                                             aria-label={navIcon.name}
                                             icon={navIcon.icon}
-                                            variant="nav"
+                                            variant="outline"
+                                            rounded="full"
                                             onClick={() =>
                                                 router.push(navIcon.path)
                                             }
