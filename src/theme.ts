@@ -19,7 +19,6 @@ const Link = defineStyleConfig({
             transition: "all 0.2s ease-in-out",
             _hover: {
                 opacity: 1,
-                paddingBottom: 1,
                 textDecoration: "none",
             },
         },

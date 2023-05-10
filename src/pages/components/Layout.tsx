@@ -1,7 +1,9 @@
 import Head from "next/head"
-import { siteTitle, siteIconPublicUrl } from "@/constants"
+import { siteTitle, siteIconPublicUrl, siteNavRoutes } from "@/constants"
 import { Flex, VStack } from "@chakra-ui/react"
 import Navbar from "./Navbar"
+import Footer from "./Footer"
+import { FaGithub } from "react-icons/fa"
 
 interface LayoutProps {
     pageTitle: string
@@ -23,14 +25,39 @@ const Layout = ({ pageTitle, pageDescription, children }: LayoutProps) => {
             </Head>
             <Flex flexDirection="column" w="full" minH="100vh" align="center">
                 <Navbar
-                    navRoutes={[{ name: "Home", path: "/" }]}
+                    navRoutes={siteNavRoutes}
                     displaySiteTitle
                     displaySiteIcon
                     displayColorModeToggle
+                    divider
                 />
-                <VStack p={6} spacing={4}>
+                <VStack p={6} spacing={4} flex={1}>
                     {children}
                 </VStack>
+                <Footer
+                    sections={[
+                        {
+                            title: "Sitemap",
+                            navRoutes: [
+                                { name: "Home", path: "/" },
+                                { name: "About", path: "/about" },
+                            ],
+                        },
+                        {
+                            title: "Socials",
+                            navIcons: [
+                                {
+                                    name: "GitHub",
+                                    path: "https://github.com",
+                                    icon: <FaGithub />,
+                                },
+                            ],
+                        },
+                    ]}
+                    displaySiteTitle
+                    displayCopyRight
+                    divider
+                />
             </Flex>
         </>
     )

@@ -19,6 +19,7 @@ interface NavbarProps {
     displayColorModeToggle?: boolean
     displaySiteTitle?: boolean
     displaySiteIcon?: boolean
+    divider?: boolean
 }
 
 const Navbar = ({
@@ -27,12 +28,28 @@ const Navbar = ({
     displayColorModeToggle,
     displaySiteTitle,
     displaySiteIcon,
+    divider,
 }: NavbarProps) => {
     const { colorMode, toggleColorMode } = useColorMode()
     const router = useRouter()
 
     return (
-        <Flex as="nav" w="full" align="center" padding={4} gap={6}>
+        <Flex
+            as="nav"
+            w="full"
+            align="center"
+            padding={4}
+            gap={6}
+            borderBottom={
+                divider
+                    ? `1px solid ${
+                          colorMode === "light"
+                              ? "rgba(0,0,0,0.2)"
+                              : "rgba(255,255,255,0.2)"
+                      }`
+                    : undefined
+            }
+        >
             {(displaySiteTitle || displaySiteIcon) && (
                 <HStack spacing={2}>
                     {displaySiteIcon && (
@@ -54,7 +71,11 @@ const Navbar = ({
                         as={NextLink}
                         key={navRoute.name}
                         href={navRoute.path}
-                        variant={router.pathname === navRoute.path ? "navActive" : "nav"}
+                        variant={
+                            router.pathname === navRoute.path
+                                ? "navActive"
+                                : "nav"
+                        }
                     >
                         {navRoute.name}
                     </Link>
