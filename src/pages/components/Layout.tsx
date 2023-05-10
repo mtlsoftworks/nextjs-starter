@@ -1,6 +1,7 @@
 import Head from "next/head"
-import { siteTitle } from "@/constants"
+import { siteTitle, siteIconPublicUrl } from "@/constants"
 import { Flex, VStack } from "@chakra-ui/react"
+import Navbar from "./Navbar"
 
 interface LayoutProps {
     pageTitle: string
@@ -8,11 +9,7 @@ interface LayoutProps {
     children: React.ReactNode
 }
 
-const Layout: React.FC<LayoutProps> = ({
-    pageTitle,
-    pageDescription,
-    children,
-}) => {
+const Layout = ({ pageTitle, pageDescription, children }: LayoutProps) => {
     return (
         <>
             <Head>
@@ -22,9 +19,15 @@ const Layout: React.FC<LayoutProps> = ({
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href={siteIconPublicUrl} />
             </Head>
-            <Flex w="full" minH="100vh" justify="center">
+            <Flex flexDirection="column" w="full" minH="100vh" align="center">
+                <Navbar
+                    navRoutes={[{ name: "Home", path: "/" }]}
+                    displaySiteTitle
+                    displaySiteIcon
+                    displayColorModeToggle
+                />
                 <VStack p={6} spacing={4}>
                     {children}
                 </VStack>
