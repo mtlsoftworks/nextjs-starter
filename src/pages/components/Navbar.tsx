@@ -1,14 +1,15 @@
 import { NavIcon, NavRoute } from "@/types"
 import NextImage from "next/image"
+import NextLink from "next/link"
 import {
     Flex,
     HStack,
     Heading,
     IconButton,
+    Link,
     useColorMode,
 } from "@chakra-ui/react"
 import { siteTitle, siteIcon } from "@/constants"
-import { Link } from "@chakra-ui/next-js"
 import { MoonIcon, SunIcon } from "@chakra-ui/icons"
 import { useRouter } from "next/router"
 
@@ -49,7 +50,12 @@ const Navbar = ({
             )}
             <HStack spacing={4} wrap="wrap">
                 {navRoutes.map((navRoute) => (
-                    <Link key={navRoute.name} href={navRoute.path}>
+                    <Link
+                        as={NextLink}
+                        key={navRoute.name}
+                        href={navRoute.path}
+                        variant={router.pathname === navRoute.path ? "navActive" : "nav"}
+                    >
                         {navRoute.name}
                     </Link>
                 ))}
