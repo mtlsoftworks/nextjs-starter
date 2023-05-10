@@ -67,7 +67,7 @@ const Navbar = ({
                             key={navIcon.name}
                             aria-label={navIcon.name}
                             icon={navIcon.icon}
-                            variant="ghost"
+                            variant="nav"
                             onClick={() => router.push(navIcon.path)}
                         />
                     ))}
@@ -81,7 +81,7 @@ const Navbar = ({
                                     <SunIcon />
                                 )
                             }
-                            variant="ghost"
+                            variant="nav"
                             onClick={toggleColorMode}
                         />
                     )}

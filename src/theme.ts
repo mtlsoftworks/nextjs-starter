@@ -34,8 +34,23 @@ const Link = defineStyleConfig({
     },
 })
 
+const Button = defineStyleConfig({
+    variants: {
+        nav: {
+            background: "none",
+            padding: 0,
+            opacity: 0.8,
+            transition: "all 0.2s ease-in-out",
+            _hover: {
+                opacity: 1,
+            },
+        },
+    },
+})
+
 const components = {
     Link,
+    Button,
 }
 
 const theme = extendTheme({
