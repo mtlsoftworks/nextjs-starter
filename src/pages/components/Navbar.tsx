@@ -21,6 +21,7 @@ interface NavbarProps {
     displayColorModeToggle?: boolean
     displaySiteTitle?: boolean
     displaySiteIcon?: boolean
+    bgOnScroll?: boolean
     divider?: boolean
     dividerOnScroll?: boolean
     shadow?: "none" | "sm" | "md" | "lg" | "xl" | "2xl"
@@ -35,6 +36,7 @@ const Navbar = ({
     displayColorModeToggle,
     displaySiteTitle,
     displaySiteIcon,
+    bgOnScroll = false,
     divider,
     dividerOnScroll = false,
     shadow = "none",
@@ -65,6 +67,7 @@ const Navbar = ({
         <Flex
             as="nav"
             sx={styles}
+            bg={(bgOnScroll && scrolledToTop) ? "transparent" : colorMode === "light" ? "white" : "gray.800"}
             padding={4}
             gap={6}
             borderBottom={

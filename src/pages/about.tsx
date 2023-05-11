@@ -1,5 +1,6 @@
 import {
     Box,
+    Center,
     Code,
     Heading,
     ListItem,
@@ -39,6 +40,9 @@ export default function About() {
                 </UnorderedList>
                 <ListItem>Chakra Icons and React Icons Pre-Installed</ListItem>
             </UnorderedList>
+            <Center height="100vh" bg="gray" w="full" rounded="lg">
+                <Heading>Scroll Test Block</Heading>
+            </Center>
         </Layout>
     )
 }

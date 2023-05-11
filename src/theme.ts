@@ -1,14 +1,33 @@
 import { ThemeConfig, defineStyleConfig, extendTheme } from "@chakra-ui/react"
+import { mode } from '@chakra-ui/theme-tools'
 
 const config: ThemeConfig = {
     initialColorMode: "system",
     useSystemColorMode: true,
 }
 
+const styles = {
+    global: (props: any) => ({
+      body: {
+        fontFamily: 'body',
+        color: mode('gray.800', 'whiteAlpha.900')(props),
+        bgGradient: mode('linear-gradient(to-tr, #dedede, white)', 'linear-gradient(to-tr, gray.900, gray.700)')(props),
+        lineHeight: 'base',
+      },
+      '*::placeholder': {
+        color: mode('gray.400', 'whiteAlpha.400')(props),
+      },
+      '*, *::before, &::after': {
+        borderColor: mode('gray.200', 'whiteAlpha.300')(props),
+        wordWrap: 'break-word',
+      },
+    }),
+  }
+
 const fonts = {
     heading: "var(--font-inter)",
     body: "var(--font-inter)",
-}
+}    
 
 const Link = defineStyleConfig({
     variants: {
@@ -68,13 +87,9 @@ const Button = defineStyleConfig({
 
 const Navbar = defineStyleConfig({
     baseStyle: {
-        bg: "white",
         w: "full",
         align: "center",
         transition: "all 0.2s ease-in-out",
-        _dark: {
-            bg: "gray.800",
-        },
     },
     variants: {
         sticky: {
@@ -93,6 +108,7 @@ const components = {
 
 const theme = extendTheme({
     config,
+    styles,
     fonts,
     components,
 })
