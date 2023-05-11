@@ -30,6 +30,7 @@ const Layout = ({ pageTitle, pageDescription, children }: LayoutProps) => {
                     displaySiteIcon
                     displayColorModeToggle
                     divider
+                    variant="sticky"
                 />
                 <VStack p={6} spacing={4} flex={1}>
                     {children}

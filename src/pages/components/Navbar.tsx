@@ -8,6 +8,7 @@ import {
     IconButton,
     Link,
     useColorMode,
+    useStyleConfig,
 } from "@chakra-ui/react"
 import { siteTitle, siteIcon } from "@/constants"
 import { MoonIcon, SunIcon } from "@chakra-ui/icons"
@@ -20,6 +21,8 @@ interface NavbarProps {
     displaySiteTitle?: boolean
     displaySiteIcon?: boolean
     divider?: boolean
+    shadow?: "none" | "sm" | "md" | "lg" | "xl" | "2xl"
+    variant?: string
 }
 
 const Navbar = ({
@@ -29,17 +32,18 @@ const Navbar = ({
     displaySiteTitle,
     displaySiteIcon,
     divider,
+    shadow = "none",
+    variant,
 }: NavbarProps) => {
     const { colorMode, toggleColorMode } = useColorMode()
     const router = useRouter()
 
+    const styles = useStyleConfig("Navbar", { variant })
+
     return (
         <Flex
             as="nav"
-            w="full"
-            align="center"
-            padding={4}
-            gap={6}
+            sx={styles}
             borderBottom={
                 divider
                     ? `1px solid ${
@@ -49,6 +53,7 @@ const Navbar = ({
                       }`
                     : undefined
             }
+            shadow={shadow}
         >
             {(displaySiteTitle || displaySiteIcon) && (
                 <HStack spacing={2}>

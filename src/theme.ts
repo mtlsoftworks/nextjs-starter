@@ -55,7 +55,27 @@ const Button = defineStyleConfig({
                 _hover: {
                     border: "1px solid rgba(255,255,255,0.2)",
                 },
-            }
+            },
+        },
+    },
+})
+
+const Navbar = defineStyleConfig({
+    baseStyle: {
+        bg: "white",
+        w: "full",
+        align: "center",
+        padding: 4,
+        gap: 6,
+        _dark: {
+            bg: "gray.800",
+        },
+    },
+    variants: {
+        sticky: {
+            position: "sticky",
+            top: 0,
+            zIndex: "sticky",
         },
     },
 })
@@ -63,6 +83,7 @@ const Button = defineStyleConfig({
 const components = {
     Link,
     Button,
+    Navbar,
 }
 
 const theme = extendTheme({

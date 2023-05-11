@@ -1,4 +1,11 @@
-import { Code, Heading, ListItem, Text, UnorderedList } from "@chakra-ui/react"
+import {
+    Box,
+    Code,
+    Heading,
+    ListItem,
+    Text,
+    UnorderedList,
+} from "@chakra-ui/react"
 import Layout from "./components/Layout"
 
 export default function About() {
