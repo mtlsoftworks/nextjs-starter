@@ -10,10 +10,11 @@ import {
     useColorMode,
     useStyleConfig,
 } from "@chakra-ui/react"
-import { siteTitle, siteIcon } from "@/constants"
+import { siteTitle, siteIcon, useBrandColors } from "@/constants"
 import { MoonIcon, SunIcon } from "@chakra-ui/icons"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
+import theme from "@/theme"
 
 interface NavbarProps {
     navRoutes: NavRoute[]
@@ -21,6 +22,7 @@ interface NavbarProps {
     displayColorModeToggle?: boolean
     displaySiteTitle?: boolean
     displaySiteIcon?: boolean
+    blurBehind?: boolean
     bgOnScroll?: boolean
     divider?: boolean
     dividerOnScroll?: boolean
@@ -36,6 +38,7 @@ const Navbar = ({
     displayColorModeToggle,
     displaySiteTitle,
     displaySiteIcon,
+    blurBehind = false,
     bgOnScroll = false,
     divider,
     dividerOnScroll = false,
@@ -67,7 +70,24 @@ const Navbar = ({
         <Flex
             as="nav"
             sx={styles}
-            bg={(bgOnScroll && scrolledToTop) ? "transparent" : colorMode === "light" ? "white" : "gray.800"}
+            backdropFilter={blurBehind ? "blur(8px)" : undefined}
+            bg={
+                blurBehind
+                    ? bgOnScroll && scrolledToTop
+                        ? "transparent"
+                        : colorMode === "light"
+                        ? "rgba(255,255,255,0.2)"
+                        : "rgba(0,0,0,0.2)"
+                    : bgOnScroll && scrolledToTop
+                    ? "transparent"
+                    : useBrandColors
+                    ? colorMode === "light"
+                        ? theme.colors.brand.primary.light
+                        : theme.colors.brand.primary.dark
+                    : colorMode === "light"
+                    ? theme.colors.base.primary.light
+                    : theme.colors.base.primary.dark
+            }
             padding={4}
             gap={6}
             borderBottom={

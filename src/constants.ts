@@ -14,3 +14,5 @@ export const siteNavRoutes: NavRoute[] = [
         name: "About",
     },
 ]
+
+export const useBrandColors = true

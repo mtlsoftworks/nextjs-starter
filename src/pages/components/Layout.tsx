@@ -29,6 +29,7 @@ const Layout = ({ pageTitle, pageDescription, children }: LayoutProps) => {
                     displaySiteTitle
                     displaySiteIcon
                     displayColorModeToggle
+                    blurBehind
                     bgOnScroll
                     shadow="md"
                     shadowOnScroll
