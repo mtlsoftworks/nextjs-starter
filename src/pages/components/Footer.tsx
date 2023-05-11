@@ -1,6 +1,5 @@
+import { siteTitle } from "@/constants"
 import { NavIcon, NavRoute } from "@/types"
-import NextImage from "next/image"
-import NextLink from "next/link"
 import {
     Flex,
     GridItem,
@@ -13,8 +12,7 @@ import {
     VStack,
     useColorMode,
 } from "@chakra-ui/react"
-import { siteTitle, siteIcon } from "@/constants"
-import { MoonIcon, SunIcon } from "@chakra-ui/icons"
+import NextLink from "next/link"
 import { useRouter } from "next/router"
 
 interface FooterSection {

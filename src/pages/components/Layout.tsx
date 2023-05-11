@@ -1,9 +1,9 @@
-import Head from "next/head"
-import { siteTitle, siteIconPublicUrl, siteNavRoutes } from "@/constants"
+import { siteIconPublicUrl, siteNavRoutes, siteTitle } from "@/constants"
 import { Flex, VStack } from "@chakra-ui/react"
-import Navbar from "./Navbar"
-import Footer from "./Footer"
+import Head from "next/head"
 import { FaGithub } from "react-icons/fa"
+import Footer from "./Footer"
+import Navbar from "./Navbar"
 
 interface LayoutProps {
     pageTitle: string

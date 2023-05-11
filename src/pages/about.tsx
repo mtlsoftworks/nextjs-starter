@@ -1,7 +1,5 @@
 import {
-    Box,
     Center,
-    Code,
     Heading,
     ListItem,
     Text,

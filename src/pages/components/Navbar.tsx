@@ -1,6 +1,7 @@
+import { siteIcon, siteTitle, useBrandColors } from "@/constants"
+import theme from "@/theme"
 import { NavIcon, NavRoute } from "@/types"
-import NextImage from "next/image"
-import NextLink from "next/link"
+import { MoonIcon, SunIcon } from "@chakra-ui/icons"
 import {
     Flex,
     HStack,
@@ -10,11 +11,10 @@ import {
     useColorMode,
     useStyleConfig,
 } from "@chakra-ui/react"
-import { siteTitle, siteIcon, useBrandColors } from "@/constants"
-import { MoonIcon, SunIcon } from "@chakra-ui/icons"
+import NextImage from "next/image"
+import NextLink from "next/link"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
-import theme from "@/theme"
 
 interface NavbarProps {
     navRoutes: NavRoute[]

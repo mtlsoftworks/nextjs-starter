@@ -1,7 +1,7 @@
-import type { AppProps } from "next/app"
-import { ChakraProvider } from "@chakra-ui/react"
-import { Inter } from "next/font/google"
 import theme from "@/theme"
+import { ChakraProvider } from "@chakra-ui/react"
+import type { AppProps } from "next/app"
+import { Inter } from "next/font/google"
 
 const inter = Inter({
     subsets: ["latin"],
