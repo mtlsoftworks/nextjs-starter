@@ -20,19 +20,25 @@ const Link = defineStyleConfig({
             opacity: 0.9,
             transition: "all 0.2s ease-in-out",
             _hover: {
-                borderBottom: "1px solid",
+                borderBottom: "1px solid rgba(0,0,0,0.4)",
                 opacity: 1,
                 textDecoration: "none",
+                _dark: {
+                    borderBottom: "1px solid rgba(255,255,255,0.4)",
+                },
             },
         },
         navActive: {
             fontSize: "lg",
             fontWeight: "light",
             borderTop: "1px solid transparent",
-            borderBottom: "1px solid",
+            borderBottom: "1px solid rgba(0,0,0,0.2)",
             cursor: "default",
             _hover: {
                 textDecoration: "none",
+            },
+            _dark: {
+                borderBottom: "1px solid rgba(255,255,255,0.2)",
             },
         },
     },
@@ -65,8 +71,7 @@ const Navbar = defineStyleConfig({
         bg: "white",
         w: "full",
         align: "center",
-        padding: 4,
-        gap: 6,
+        transition: "all 0.2s ease-in-out",
         _dark: {
             bg: "gray.800",
         },

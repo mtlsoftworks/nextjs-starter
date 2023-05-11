@@ -29,7 +29,8 @@ const Layout = ({ pageTitle, pageDescription, children }: LayoutProps) => {
                     displaySiteTitle
                     displaySiteIcon
                     displayColorModeToggle
-                    divider
+                    shadow="md"
+                    shadowOnScroll
                     variant="sticky"
                 />
                 <VStack p={6} spacing={4} flex={1}>
@@ -57,7 +58,6 @@ const Layout = ({ pageTitle, pageDescription, children }: LayoutProps) => {
                     ]}
                     displaySiteTitle
                     displayCopyRight
-                    divider
                 />
             </Flex>
         </>

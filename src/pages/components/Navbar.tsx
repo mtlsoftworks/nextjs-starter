@@ -13,6 +13,7 @@ import {
 import { siteTitle, siteIcon } from "@/constants"
 import { MoonIcon, SunIcon } from "@chakra-ui/icons"
 import { useRouter } from "next/router"
+import { useEffect, useState } from "react"
 
 interface NavbarProps {
     navRoutes: NavRoute[]
@@ -21,7 +22,10 @@ interface NavbarProps {
     displaySiteTitle?: boolean
     displaySiteIcon?: boolean
     divider?: boolean
+    dividerOnScroll?: boolean
     shadow?: "none" | "sm" | "md" | "lg" | "xl" | "2xl"
+    shadowOnScroll?: boolean
+    shrinkOnScroll?: boolean
     variant?: string
 }
 
@@ -32,7 +36,9 @@ const Navbar = ({
     displaySiteTitle,
     displaySiteIcon,
     divider,
+    dividerOnScroll = false,
     shadow = "none",
+    shadowOnScroll = false,
     variant,
 }: NavbarProps) => {
     const { colorMode, toggleColorMode } = useColorMode()
@@ -40,12 +46,29 @@ const Navbar = ({
 
     const styles = useStyleConfig("Navbar", { variant })
 
+    const [scrolledToTop, setScrolledToTop] = useState(true)
+
+    const handleScroll = () => {
+        const yPosition = window.pageYOffset
+        setScrolledToTop(yPosition === 0)
+    }
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll, { passive: true })
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll)
+        }
+    }, [])
+
     return (
         <Flex
             as="nav"
             sx={styles}
+            padding={4}
+            gap={6}
             borderBottom={
-                divider
+                divider && (!dividerOnScroll || !scrolledToTop)
                     ? `1px solid ${
                           colorMode === "light"
                               ? "rgba(0,0,0,0.2)"
@@ -53,7 +76,7 @@ const Navbar = ({
                       }`
                     : undefined
             }
-            shadow={shadow}
+            shadow={shadowOnScroll ? (scrolledToTop ? "none" : shadow) : shadow}
         >
             {(displaySiteTitle || displaySiteIcon) && (
                 <HStack spacing={2}>
