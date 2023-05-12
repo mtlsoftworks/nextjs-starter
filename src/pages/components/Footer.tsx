@@ -91,7 +91,7 @@ const Footer = ({
                                             key={navIcon.name}
                                             aria-label={navIcon.name}
                                             icon={navIcon.icon}
-                                            variant="outline"
+                                            variant="nav"
                                             rounded="full"
                                             onClick={() =>
                                                 router.push(navIcon.path)

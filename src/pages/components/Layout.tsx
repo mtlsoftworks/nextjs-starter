@@ -44,7 +44,7 @@ const Layout = ({ pageTitle, pageDescription, children }: LayoutProps) => {
 
                 {/* Twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content={twitterHandle} />
+                {twitterHandle && <meta name="twitter:site" content={twitterHandle} />}
                 <meta
                     name="twitter:title"
                     content={`${pageTitle} | ${siteTitle}`}

@@ -12,7 +12,7 @@ export const siteOGImage: StaticImageData = require("../public/og-image.png") //
 export const siteOGImagePublicUrl: string = `${siteUrl}/og-image.png`
 
 // Socials
-export const twitterHandle: string = "@twitter" // Change this to your Twitter handle
+export const twitterHandle: string | undefined = undefined // Change this to your Twitter handle (i.e. "@username")
 
 // Set up your site's navigation here
 export const siteNavRoutes: NavRoute[] = [
