@@ -1,4 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NextJS Starter Template
+
+This is a custom [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), designed to provide a solid and customizable foundation for NextJS projects.
+
+## Features
+
+- NextJS and TypeScript: Utilize the power of these leading technologies for building scalable, server-side rendered React applications with type safety.
+- Chakra UI: Leverage this simple, modular and accessible component library for React applications. Support for custom fonts with next/fonts has been setup.
+- Custom Components: A set of reusable components including Layout, Navbar, Footer, and Banner.
+- Project Constants: Define and manage important site-wide constants such as site title, url and more.
+- Chakra Icons and React Icons: These libraries come pre-installed.
+- Theme Constants: Tailor the visual aspects of your site with these settings.
 
 ## Getting Started
 
