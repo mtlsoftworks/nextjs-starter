@@ -147,8 +147,9 @@ const Navbar = ({
                         {navIcons?.map((navIcon) => (
                             <IconButton
                                 key={navIcon.name}
+                                display={{ base: "none", md: "inline-flex" }}
                                 aria-label={navIcon.name}
-                                icon={navIcon.icon}
+                                icon={<navIcon.icon />}
                                 variant="nav"
                                 onClick={() => router.push(navIcon.path)}
                             />
@@ -193,6 +194,17 @@ const Navbar = ({
                             {navRoute.name}
                         </Link>
                     ))}
+                    <HStack spacing={2}>
+                        {navIcons?.map((navIcon) => (
+                            <IconButton
+                                key={navIcon.name}
+                                aria-label={navIcon.name}
+                                icon={<navIcon.icon />}
+                                variant="nav"
+                                onClick={() => router.push(navIcon.path)}
+                            />
+                        ))}
+                    </HStack>
                 </VStack>
             </Collapse>
         </Box>

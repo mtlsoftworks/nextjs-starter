@@ -1,4 +1,4 @@
-import { ReactElement } from "react"
+import { IconType } from "react-icons"
 
 export interface NavRoute {
     path: string
@@ -8,5 +8,5 @@ export interface NavRoute {
 export interface NavIcon {
     path: string
     name: string
-    icon: ReactElement
+    icon: IconType
 }

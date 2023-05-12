@@ -1,6 +1,7 @@
 import {
     colorModeIsToggleable,
     siteIconPublicUrl,
+    siteNavIcons,
     siteNavRoutes,
     siteOGImagePublicUrl,
     siteTitle,
@@ -12,6 +13,7 @@ import Head from "next/head"
 import { FaGithub } from "react-icons/fa"
 import Footer from "./Footer"
 import Navbar from "./Navbar"
+import { NavIcon, NavRoute } from "@/types"
 
 interface LayoutProps {
     pageTitle: string
@@ -44,7 +46,9 @@ const Layout = ({ pageTitle, pageDescription, children }: LayoutProps) => {
 
                 {/* Twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
-                {twitterHandle && <meta name="twitter:site" content={twitterHandle} />}
+                {twitterHandle && (
+                    <meta name="twitter:site" content={twitterHandle} />
+                )}
                 <meta
                     name="twitter:title"
                     content={`${pageTitle} | ${siteTitle}`}
@@ -58,6 +62,7 @@ const Layout = ({ pageTitle, pageDescription, children }: LayoutProps) => {
             <Flex flexDirection="column" w="full" minH="100vh" align="center">
                 <Navbar
                     navRoutes={siteNavRoutes}
+                    navIcons={siteNavIcons}
                     displaySiteTitle
                     displaySiteIcon
                     displayColorModeToggle={colorModeIsToggleable}
@@ -74,20 +79,11 @@ const Layout = ({ pageTitle, pageDescription, children }: LayoutProps) => {
                     sections={[
                         {
                             title: "Sitemap",
-                            navRoutes: [
-                                { name: "Home", path: "/" },
-                                { name: "About", path: "/about" },
-                            ],
+                            navRoutes: siteNavRoutes,
                         },
                         {
                             title: "Socials",
-                            navIcons: [
-                                {
-                                    name: "GitHub",
-                                    path: "https://github.com",
-                                    icon: <FaGithub />,
-                                },
-                            ],
+                            navIcons: siteNavIcons,
                         },
                     ]}
                     displaySiteTitle

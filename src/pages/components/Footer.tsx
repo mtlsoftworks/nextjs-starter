@@ -90,7 +90,7 @@ const Footer = ({
                                         <IconButton
                                             key={navIcon.name}
                                             aria-label={navIcon.name}
-                                            icon={navIcon.icon}
+                                            icon={<navIcon.icon />}
                                             variant="nav"
                                             rounded="full"
                                             onClick={() =>
