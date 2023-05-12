@@ -1,6 +1,6 @@
 import { StaticImageData } from "next/image"
-import { NavIcon, NavRoute } from "./types"
 import { FaGithub, FaTwitter } from "react-icons/fa"
+import { NavIcon, NavRoute } from "./types"
 
 // Site constants
 export const siteUrl: string = "http://localhost:3000" // Change this to your site's URL
@@ -45,7 +45,6 @@ if (githubHandle) {
     })
 }
 export const siteNavIcons: NavIcon[] = siteNavIconsList
-
 
 // Theme constants
 export const useBrandColors = true // Set this to false to use the base colors instead of the brand colors. You can set your brand colors in src/theme.ts.

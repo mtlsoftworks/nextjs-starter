@@ -10,7 +10,6 @@ import {
 import NextImage from "next/image"
 import Banner from "./components/Banner"
 import Layout from "./components/Layout"
-import theme from "@/theme"
 
 export default function Home() {
     const { colorMode } = useColorMode()

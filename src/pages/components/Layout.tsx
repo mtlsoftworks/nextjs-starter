@@ -20,7 +20,12 @@ interface LayoutProps {
     children: React.ReactNode
 }
 
-const Layout = ({ pageTitle, pageDescription, maxContentWidth, children }: LayoutProps) => {
+const Layout = ({
+    pageTitle,
+    pageDescription,
+    maxContentWidth,
+    children,
+}: LayoutProps) => {
     return (
         <>
             <Head>
@@ -71,7 +76,13 @@ const Layout = ({ pageTitle, pageDescription, maxContentWidth, children }: Layou
                     shadowOnScroll
                     variant="sticky"
                 />
-                <VStack maxW={maxContentWidth} mx={'auto'} p={6} spacing={4} flex={1}>
+                <VStack
+                    maxW={maxContentWidth}
+                    mx={"auto"}
+                    p={6}
+                    spacing={4}
+                    flex={1}
+                >
                     {children}
                 </VStack>
                 <Footer

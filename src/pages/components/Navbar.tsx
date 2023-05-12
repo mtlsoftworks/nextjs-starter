@@ -118,7 +118,9 @@ const Navbar = ({
                             />
                         )}
                         {displaySiteTitle && (
-                            <Heading size="md" cursor="default">{siteTitle}</Heading>
+                            <Heading size="md" cursor="default">
+                                {siteTitle}
+                            </Heading>
                         )}
                     </HStack>
                 )}
