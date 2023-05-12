@@ -1,4 +1,9 @@
-import { siteIconPublicUrl, siteNavRoutes, siteTitle } from "@/constants"
+import {
+    colorModeIsToggleable,
+    siteIconPublicUrl,
+    siteNavRoutes,
+    siteTitle,
+} from "@/constants"
 import { Flex, VStack } from "@chakra-ui/react"
 import Head from "next/head"
 import { FaGithub } from "react-icons/fa"
@@ -28,7 +33,7 @@ const Layout = ({ pageTitle, pageDescription, children }: LayoutProps) => {
                     navRoutes={siteNavRoutes}
                     displaySiteTitle
                     displaySiteIcon
-                    displayColorModeToggle
+                    displayColorModeToggle={colorModeIsToggleable}
                     blurBehind
                     bgOnScroll
                     shadow="md"

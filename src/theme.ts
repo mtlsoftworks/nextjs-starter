@@ -1,10 +1,10 @@
 import { ThemeConfig, defineStyleConfig, extendTheme } from "@chakra-ui/react"
 import { mode } from "@chakra-ui/theme-tools"
-import { useBrandColors } from "./constants"
+import { defaultColorMode, useBrandColors } from "./constants"
 
 const config: ThemeConfig = {
-    initialColorMode: "system",
-    useSystemColorMode: true,
+    initialColorMode: defaultColorMode,
+    useSystemColorMode: defaultColorMode === "system",
 }
 
 const colors = {

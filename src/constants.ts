@@ -1,6 +1,7 @@
 import { StaticImageData } from "next/image"
 import { NavRoute } from "./types"
 
+// Site constants
 export const siteTitle: string = "NextJS Starter"
 export const siteIcon: StaticImageData = require("../public/icon.png")
 export const siteIconPublicUrl: string = "/icon.png"
@@ -17,4 +18,7 @@ export const siteNavRoutes: NavRoute[] = [
     },
 ]
 
+// Theme constants
 export const useBrandColors = true
+export const defaultColorMode : "light" | "dark" | "system" = "system"
+export const colorModeIsToggleable = true
