@@ -1,14 +1,18 @@
 import { siteIcon, siteTitle, useBrandColors } from "@/constants"
 import theme from "@/theme"
 import { NavIcon, NavRoute } from "@/types"
-import { MoonIcon, SunIcon } from "@chakra-ui/icons"
+import { HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons"
 import {
+    Box,
+    Collapse,
     Flex,
     HStack,
     Heading,
     IconButton,
     Link,
+    VStack,
     useColorMode,
+    useDisclosure,
     useStyleConfig,
 } from "@chakra-ui/react"
 import NextImage from "next/image"
@@ -49,6 +53,8 @@ const Navbar = ({
     const { colorMode, toggleColorMode } = useColorMode()
     const router = useRouter()
 
+    const { isOpen, onToggle } = useDisclosure()
+
     const styles = useStyleConfig("Navbar", { variant })
 
     const [scrolledToTop, setScrolledToTop] = useState(true)
@@ -67,7 +73,7 @@ const Navbar = ({
     }, [])
 
     return (
-        <Flex
+        <Box
             as="nav"
             sx={styles}
             backdropFilter={blurBehind ? "blur(8px)" : undefined}
@@ -76,8 +82,8 @@ const Navbar = ({
                     ? bgOnScroll && scrolledToTop
                         ? "transparent"
                         : colorMode === "light"
-                        ? "rgba(255,255,255,0.2)"
-                        : "rgba(0,0,0,0.2)"
+                        ? "rgba(255,255,255,0.4)"
+                        : "rgba(0,0,0,0.4)"
                     : bgOnScroll && scrolledToTop
                     ? "transparent"
                     : useBrandColors
@@ -89,7 +95,6 @@ const Navbar = ({
                     : theme.colors.base.primary.dark
             }
             padding={4}
-            gap={6}
             borderBottom={
                 divider && (!dividerOnScroll || !scrolledToTop)
                     ? `1px solid ${
@@ -101,65 +106,96 @@ const Navbar = ({
             }
             shadow={shadowOnScroll ? (scrolledToTop ? "none" : shadow) : shadow}
         >
-            {(displaySiteTitle || displaySiteIcon) && (
-                <HStack spacing={2}>
-                    {displaySiteIcon && (
-                        <NextImage
-                            src={siteIcon}
-                            alt={siteTitle}
-                            width={24}
-                            height={24}
-                        />
-                    )}
-                    {displaySiteTitle && (
-                        <Heading size="md">{siteTitle}</Heading>
-                    )}
-                </HStack>
-            )}
-            <HStack spacing={4} wrap="wrap">
-                {navRoutes.map((navRoute) => (
-                    <Link
-                        as={NextLink}
-                        key={navRoute.name}
-                        href={navRoute.path}
-                        variant={
-                            router.pathname === navRoute.path
-                                ? "navActive"
-                                : "nav"
-                        }
-                    >
-                        {navRoute.name}
-                    </Link>
-                ))}
-            </HStack>
-            {(displayColorModeToggle || navIcons) && (
-                <HStack spacing={4} ml="auto">
-                    {navIcons?.map((navIcon) => (
-                        <IconButton
-                            key={navIcon.name}
-                            aria-label={navIcon.name}
-                            icon={navIcon.icon}
-                            variant="nav"
-                            onClick={() => router.push(navIcon.path)}
-                        />
-                    ))}
-                    {displayColorModeToggle && (
-                        <IconButton
-                            aria-label="Toggle color mode"
-                            icon={
-                                colorMode === "light" ? (
-                                    <MoonIcon />
-                                ) : (
-                                    <SunIcon />
-                                )
+            <Flex w="full" align="center" gap={6}>
+                {(displaySiteTitle || displaySiteIcon) && (
+                    <HStack spacing={2}>
+                        {displaySiteIcon && (
+                            <NextImage
+                                src={siteIcon}
+                                alt={siteTitle}
+                                width={24}
+                                height={24}
+                            />
+                        )}
+                        {displaySiteTitle && (
+                            <Heading size="md">{siteTitle}</Heading>
+                        )}
+                    </HStack>
+                )}
+                <HStack
+                    display={{ base: "none", md: "flex" }}
+                    spacing={4}
+                    wrap="wrap"
+                >
+                    {navRoutes.map((navRoute) => (
+                        <Link
+                            as={NextLink}
+                            key={navRoute.name}
+                            href={navRoute.path}
+                            variant={
+                                router.pathname === navRoute.path
+                                    ? "navActive"
+                                    : "nav"
                             }
-                            variant="nav"
-                            onClick={toggleColorMode}
-                        />
-                    )}
+                        >
+                            {navRoute.name}
+                        </Link>
+                    ))}
                 </HStack>
-            )}
-        </Flex>
+                {(displayColorModeToggle || navIcons) && (
+                    <HStack spacing={2} ml="auto">
+                        {navIcons?.map((navIcon) => (
+                            <IconButton
+                                key={navIcon.name}
+                                aria-label={navIcon.name}
+                                icon={navIcon.icon}
+                                variant="nav"
+                                onClick={() => router.push(navIcon.path)}
+                            />
+                        ))}
+                        {displayColorModeToggle && (
+                            <IconButton
+                                aria-label="Toggle color mode"
+                                icon={
+                                    colorMode === "light" ? (
+                                        <MoonIcon />
+                                    ) : (
+                                        <SunIcon />
+                                    )
+                                }
+                                variant="nav"
+                                onClick={toggleColorMode}
+                            />
+                        )}
+                        <IconButton
+                            display={{ base: "inline-flex", md: "none" }}
+                            aria-label="Menu"
+                            icon={<HamburgerIcon />}
+                            variant="nav"
+                            onClick={onToggle}
+                        />
+                    </HStack>
+                )}
+            </Flex>
+            <Collapse in={isOpen} animate>
+                <VStack spacing={2} pt={2} pr={2} align="flex-end">
+                    {navRoutes.map((navRoute) => (
+                        <Link
+                            as={NextLink}
+                            key={navRoute.name}
+                            href={navRoute.path}
+                            variant={
+                                router.pathname === navRoute.path
+                                    ? "navActive"
+                                    : "nav"
+                            }
+                        >
+                            {navRoute.name}
+                        </Link>
+                    ))}
+                </VStack>
+            </Collapse>
+        </Box>
     )
 }
 
