@@ -1,5 +1,6 @@
 import {
     Box,
+    Center,
     Heading,
     ListItem,
     Text,
@@ -24,12 +25,9 @@ export default function About() {
                 that you can tailor to suit your needs.
             </Text>
             <Box
+                w="full"
                 maxW="container.md"
-                bg={
-                    colorMode === "light"
-                        ? "rgba(255,255,255,0.4)"
-                        : "rgba(0,0,0,0.4)"
-                }
+                bg={colorMode === "light" ? "whiteAlpha.500" : "blackAlpha.500"}
                 backdropFilter={"blur(8px)"}
                 p={6}
                 rounded="md"
@@ -105,6 +103,18 @@ export default function About() {
                     </UnorderedList>
                 </UnorderedList>
             </Box>
+            <Center
+                w="full"
+                maxW="container.md"
+                bg={colorMode === "light" ? "whiteAlpha.500" : "blackAlpha.500"}
+                backdropFilter={"blur(8px)"}
+                p={6}
+                rounded="md"
+                shadow="md"
+                height='100vh'
+            >
+                <Heading>Block to Test Scroll Effects</Heading>
+            </Center>
         </Layout>
     )
 }

@@ -82,8 +82,8 @@ const Navbar = ({
                     ? bgOnScroll && scrolledToTop
                         ? "transparent"
                         : colorMode === "light"
-                        ? "rgba(255,255,255,0.4)"
-                        : "rgba(0,0,0,0.4)"
+                        ? "whiteAlpha.500"
+                        : "blackAlpha.500"
                     : bgOnScroll && scrolledToTop
                     ? "transparent"
                     : useBrandColors

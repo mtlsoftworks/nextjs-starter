@@ -115,11 +115,11 @@ const Link = defineStyleConfig({
             opacity: 0.9,
             transition: "all 0.2s ease-in-out",
             _hover: {
-                borderBottom: "1px solid rgba(0,0,0,0.4)",
+                borderBottom: "1px solid blackAlpha.500",
                 opacity: 1,
                 textDecoration: "none",
                 _dark: {
-                    borderBottom: "1px solid rgba(255,255,255,0.4)",
+                    borderBottom: "1px solid whiteAlpha.500",
                 },
             },
         },
