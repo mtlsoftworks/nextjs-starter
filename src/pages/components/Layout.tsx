@@ -10,18 +10,17 @@ import {
 } from "@/constants"
 import { Flex, VStack } from "@chakra-ui/react"
 import Head from "next/head"
-import { FaGithub } from "react-icons/fa"
 import Footer from "./Footer"
 import Navbar from "./Navbar"
-import { NavIcon, NavRoute } from "@/types"
 
 interface LayoutProps {
     pageTitle: string
     pageDescription: string
+    maxContentWidth?: string | number
     children: React.ReactNode
 }
 
-const Layout = ({ pageTitle, pageDescription, children }: LayoutProps) => {
+const Layout = ({ pageTitle, pageDescription, maxContentWidth, children }: LayoutProps) => {
     return (
         <>
             <Head>
@@ -72,7 +71,7 @@ const Layout = ({ pageTitle, pageDescription, children }: LayoutProps) => {
                     shadowOnScroll
                     variant="sticky"
                 />
-                <VStack p={6} spacing={4} flex={1}>
+                <VStack maxW={maxContentWidth} mx={'auto'} p={6} spacing={4} flex={1}>
                     {children}
                 </VStack>
                 <Footer
