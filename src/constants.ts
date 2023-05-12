@@ -2,7 +2,7 @@ import { StaticImageData } from "next/image"
 import { NavRoute } from "./types"
 
 // Site constants
-export const siteUrl: string = "http://localhost:3000/" // Change this to your site's URL
+export const siteUrl: string = "http://localhost:3000" // Change this to your site's URL
 export const siteTitle: string = "NextJS Starter" // Change this to your site's title
 export const siteIcon: StaticImageData = require("../public/icon.png") // There is a default icon in the public folder, but you should change this to your site's icon
 export const siteIconPublicUrl: string = `${siteUrl}/icon.png`
