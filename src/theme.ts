@@ -101,8 +101,8 @@ const styles = {
 }
 
 const fonts = {
-    heading: "var(--font-inter)",
-    body: "var(--font-inter)",
+    heading: "var(--font-custom)",
+    body: "var(--font-custom)",
 }
 
 const Link = defineStyleConfig({
