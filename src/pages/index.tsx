@@ -8,8 +8,8 @@ import {
     useColorMode,
 } from "@chakra-ui/react"
 import NextImage from "next/image"
-import Banner from "./components/Banner"
-import Layout from "./components/Layout"
+import Banner from "../components/Banner"
+import Layout from "../components/Layout"
 
 export default function Home() {
     const { colorMode } = useColorMode()
