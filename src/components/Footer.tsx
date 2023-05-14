@@ -43,7 +43,7 @@ const Footer = ({
             flexDirection="column"
             w="full"
             align="center"
-            padding={4}
+            padding={6}
             gap={6}
             borderTop={
                 divider

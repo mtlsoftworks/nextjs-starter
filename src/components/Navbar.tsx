@@ -94,7 +94,7 @@ const Navbar = ({
                     ? theme.colors.base.primary.light
                     : theme.colors.base.primary.dark
             }
-            padding={4}
+            padding={{base: 4, md: 6}}
             borderBottom={
                 divider && (!dividerOnScroll || !scrolledToTop)
                     ? `1px solid ${
