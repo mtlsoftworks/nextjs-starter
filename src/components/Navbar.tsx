@@ -94,7 +94,9 @@ const Navbar = ({
                     ? theme.colors.base.primary.light
                     : theme.colors.base.primary.dark
             }
-            padding={{base: 4, md: 6}}
+            maxH="100vh"
+            overflow="auto"
+            padding={{ base: 4, md: 6 }}
             borderBottom={
                 divider && (!dividerOnScroll || !scrolledToTop)
                     ? `1px solid ${
@@ -124,10 +126,11 @@ const Navbar = ({
                         )}
                     </HStack>
                 )}
-                <HStack
+                <Flex
                     display={{ base: "none", md: "flex" }}
-                    spacing={4}
-                    wrap="wrap"
+                    rowGap={2}
+                    columnGap={6}
+                    flexWrap="wrap"
                 >
                     {navRoutes.map((navRoute) => (
                         <Link
@@ -143,7 +146,7 @@ const Navbar = ({
                             {navRoute.name}
                         </Link>
                     ))}
-                </HStack>
+                </Flex>
                 {(displayColorModeToggle || navIcons) && (
                     <HStack spacing={2} ml="auto">
                         {navIcons?.map((navIcon) => (
