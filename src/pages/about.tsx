@@ -8,6 +8,7 @@ import {
     useColorMode,
 } from "@chakra-ui/react"
 import Layout from "../components/Layout"
+import SlideBox from "@/components/SlideBox"
 
 export default function About() {
     const { colorMode } = useColorMode()
@@ -24,15 +25,7 @@ export default function About() {
                 includes several preconfigured features, with a host of options
                 that you can tailor to suit your needs.
             </Text>
-            <Box
-                w="full"
-                maxW="container.md"
-                bg={colorMode === "light" ? "whiteAlpha.500" : "blackAlpha.500"}
-                backdropFilter={"blur(8px)"}
-                p={6}
-                rounded="md"
-                shadow="md"
-            >
+            <SlideBox>
                 <UnorderedList>
                     <ListItem>
                         NextJS and TypeScript — Utilize the power of these
@@ -102,19 +95,12 @@ export default function About() {
                         </ListItem>
                     </UnorderedList>
                 </UnorderedList>
-            </Box>
-            <Center
-                w="full"
-                maxW="container.md"
-                bg={colorMode === "light" ? "whiteAlpha.500" : "blackAlpha.500"}
-                backdropFilter={"blur(8px)"}
-                p={6}
-                rounded="md"
-                shadow="md"
-                height='100vh'
-            >
-                <Heading>Block to Test Scroll Effects</Heading>
-            </Center>
+            </SlideBox>
+            <SlideBox delayIn={0.2}>
+                <Center w="full" height="100vh">
+                    <Heading>Block to Test Scroll Effects</Heading>
+                </Center>
+            </SlideBox>
         </Layout>
     )
 }
