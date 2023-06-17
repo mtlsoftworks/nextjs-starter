@@ -1,5 +1,6 @@
 import { siteLogo, siteTitle } from "@/constants"
 import {
+    Center,
     Code,
     HStack,
     Heading,
@@ -19,12 +20,9 @@ export default function Home() {
         <Layout pageTitle="Home" pageDescription="This is the home page.">
             <Banner>
                 <HStack spacing={6}>
-                    <NextImage
-                        src={siteLogo}
-                        alt={siteTitle}
-                        width={128}
-                        height={128}
-                    />
+                    <Center flexGrow={1} flexShrink={1} maxW={128}>
+                        <NextImage src={siteLogo} alt={siteTitle} />
+                    </Center>
                     <Heading size="3xl">{siteTitle}</Heading>
                 </HStack>
             </Banner>
