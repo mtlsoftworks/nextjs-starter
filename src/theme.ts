@@ -105,6 +105,19 @@ const fonts = {
     body: "var(--font-custom)",
 }
 
+const layerStyles = {
+    glass: {
+        background: "whiteAlpha.500",
+        backdropFilter: "blur(8px)",
+        rounded: "md",
+        shadow: "lg",
+
+        _dark: {
+            background: "blackAlpha.500",
+        },
+    },
+}
+
 const Link = defineStyleConfig({
     variants: {
         nav: {
@@ -186,6 +199,7 @@ const theme = extendTheme({
     config,
     colors,
     styles,
+    layerStyles,
     fonts,
     components,
 })

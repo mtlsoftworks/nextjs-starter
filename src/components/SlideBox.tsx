@@ -35,11 +35,8 @@ const SlideBox = ({
             <Box
                 w="full"
                 maxW={maxW}
-                bg={colorMode === "light" ? "whiteAlpha.500" : "blackAlpha.500"}
-                backdropFilter={"blur(8px)"}
                 p={6}
-                rounded="md"
-                shadow="lg"
+                layerStyle="glass"
             >
                 {children}
             </Box>
